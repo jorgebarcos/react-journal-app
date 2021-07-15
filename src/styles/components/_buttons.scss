@@ -11,6 +11,7 @@
   &:focus {
     outline: none;
   }
+
   &:hover {
     color: darken($color: white, $amount: 10);
   }
@@ -23,8 +24,18 @@
   &:disabled {
     background-color: lighten($color: $primary, $amount: 15);
   }
+
   &:hover {
     background-color: darken($color: $primary, $amount: 15);
+  }
+}
+
+.btn-danger {
+  background-color: red;
+  transition: background-color .3s ease;
+
+  &:hover {
+    background-color: darken($color: red, $amount: 10);
   }
 }
 
@@ -52,6 +63,7 @@
     border-radius: 2px;
     background-color: $white;
   }
+
   .google-icon {
     position: absolute;
     margin-top: 11px;
@@ -59,6 +71,7 @@
     width: 18px;
     height: 18px;
   }
+
   .btn-text {
     float: right;
     margin: 11px 40px 0 0;
@@ -66,9 +79,11 @@
     font-size: 14px;
     letter-spacing: 0.2px;
   }
+
   &:hover {
     box-shadow: 0 0 6px $google-blue;
   }
+
   &:active {
     background: $button-active-blue;
   }

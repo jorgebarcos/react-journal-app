@@ -78,8 +78,8 @@ export const refreshNote = (id, note) => ({
 })
 
 export const startUploading = (file) => {
-    return async (dispatch, getSate) => {
-        const { active: activeNote } = getSate().notes
+    return async (dispatch, getState) => {
+        const { active: activeNote } = getState().notes
 
         Swal.fire({
             title: 'Uploading...',
@@ -100,3 +100,17 @@ export const startUploading = (file) => {
 
     }
 }
+
+export const startDeleting = (id) => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid
+        await db.doc(`${uid}/journal/notes/${id}`).delete();
+
+        dispatch(deleteNote(id))
+    }
+}
+
+export const deleteNote = (id) => ({
+    type: types.notesDelete,
+    payload: id
+})
